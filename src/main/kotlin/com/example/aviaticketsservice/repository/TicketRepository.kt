@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository
 interface TicketRepository : CrudRepository<Ticket, Int>
 {
     fun findTicketsByUserId(userId: Int): List<Ticket>
+    fun findTicketByUserIdAndId(userId: Int, ticketId: Int): Ticket
 }

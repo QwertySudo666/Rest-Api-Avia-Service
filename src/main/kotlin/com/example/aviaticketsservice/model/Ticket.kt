@@ -1,16 +1,18 @@
 package com.example.aviaticketsservice.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import javax.persistence.*
 
 @Entity
 @Table(name = "tickets")
 data class Ticket(
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    val ticketId: Int,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Int,
     @ManyToOne
-    @JoinColumn(name = "id")
-    val user: User,
+    @JoinColumn(name = "user_id")
+    var user: User,
     val fromCity: String,
     val toCity: String,
     val planeNumber: String,
